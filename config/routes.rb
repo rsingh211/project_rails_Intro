@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "characters/index"
+  get "characters/show"
   # Defines the root path
   root "characters#index"
 
