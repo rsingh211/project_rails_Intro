@@ -1,2 +1,6 @@
 class Character < ApplicationRecord
-end
+    has_many :appearances
+    has_many :films, through: :appearances
+    validates :name, :species, :birth_year, presence: true
+  end
+  
