@@ -1,5 +1,29 @@
+<h1>Characters</h1>
+
+<!-- Search Form -->
 <%= form_tag(root_path, method: :get) do %>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search" %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search characters..." %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<!-- Filter by Species -->
+<%= form_tag(root_path, method: :get) do %>
+  <%= select_tag :species, options_for_select(@species, params[:species]), include_blank: "Filter by Species" %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<!-- Filter by Film -->
+<%= form_tag(root_path, method: :get) do %>
+  <%= select_tag :film_id, options_from_collection_for_select(@films, :id, :title, params[:film_id]), include_blank: "Filter by Film" %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<!-- Character List -->
+<ul>
+  <% @characters.each do |character| %>
+    <li><%= link_to character.name, character_path(character) %></li>
   <% end %>
-  
+</ul>
+
+<!-- Pagination Controls -->
+<%= paginate @characters %>

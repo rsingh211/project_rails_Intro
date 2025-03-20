@@ -1,0 +1,21 @@
+<h1>Films</h1>
+
+<!-- Filter by Episode -->
+<%= form_tag(films_path, method: :get) do %>
+  <label for="episode">Filter by Episode:</label>
+  <%= select_tag :episode, options_for_select((1..9).to_a, params[:episode]), include_blank: "All Episodes" %>
+  <%= submit_tag "Filter" %>
+<% end %>
+
+<!-- Film List -->
+<ul>
+  <% @films.each do |film| %>
+    <li>
+      <%= link_to film.title, film_path(film) %> 
+      (Episode <%= film.episode %>, Released: <%= film.release_date %>)
+    </li>
+  <% end %>
+</ul>
+
+<!-- Pagination Controls -->
+<%= paginate @films %>

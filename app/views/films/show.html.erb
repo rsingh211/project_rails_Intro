@@ -1,0 +1,16 @@
+<h2><%= @film.title %></h2>
+<p><strong>Episode:</strong> <%= @film.episode %></p>
+<p><strong>Release Date:</strong> <%= @film.release_date %></p>
+
+<h3>Characters in this Film:</h3>
+<ul>
+  <% if @characters.any? %>
+    <% @characters.each do |character| %>
+      <li><%= link_to character.name, character_path(character) %></li>
+    <% end %>
+  <% else %>
+    <p>No characters listed for this film.</p>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Films", films_path %>

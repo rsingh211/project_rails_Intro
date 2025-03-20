@@ -1,2 +1,17 @@
-<h1>Characters#show</h1>
-<p>Find me in app/views/characters/show.html.erb</p>
+<h2><%= @character.name %></h2>
+<p><strong>Species:</strong> <%= @character.species %></p>
+<p><strong>Birth Year:</strong> <%= @character.birth_year %></p>
+<p><strong>Gender:</strong> <%= @character.gender %></p>
+
+<h3>Films:</h3>
+<ul>
+  <% if @films.any? %>
+    <% @films.each do |film| %>
+      <li><%= link_to film.title, film_path(film) %> (Episode <%= film.episode %>)</li>
+    <% end %>
+  <% else %>
+    <p>This character does not appear in any films.</p>
+  <% end %>
+</ul>
+
+<%= link_to "Back to Characters", characters_path %>
