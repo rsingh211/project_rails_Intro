@@ -1,22 +1,94 @@
 <h1>About This Project</h1>
 
 <p>
-  This is a **Rails Intro Project** where we fetch and display data from **Faker** and the **SWAPI API**.
-  The goal is to implement key Rails features such as **ActiveRecord models, relationships, pagination, search, and filtering**.
+  This is a <strong>Rails Intro Project</strong> that demonstrates key concepts of **ActiveRecord, API integration, pagination, and filtering**.
+  The project sources its data from two primary sources:
 </p>
 
-<h2>Data Sources</h2>
+<h2>📌 Data Sources</h2>
+
 <ul>
-  <li>💾 <strong>Faker</strong>: Used for generating fake Star Wars characters.</li>
-  <li>🌐 <strong>SWAPI API</strong>: Fetches real Star Wars characters and films.</li>
+  <li>💾 <strong>Faker</strong>: Used for generating **fake Star Wars characters**, including names, species, birth year, and gender.</li>
+  <li>🌐 <strong>SWAPI API</strong>: The <a href="https://swapi.dev/" target="_blank">Star Wars API</a> provides real character and film data, including:
+    <ul>
+      <li>Character Names, Species, Birth Year, Gender</li>
+      <li>Film Titles, Episode Numbers, and Release Dates</li>
+    </ul>
+  </li>
 </ul>
 
-<h2>Project Features</h2>
+<h2>📊 Database Structure</h2>
+
+<p>
+  The database consists of three main tables:
+</p>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Table</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><strong>characters</strong></td>
+    <td>Stores **Star Wars characters**, their species, birth year, gender, and geographic location (latitude & longitude).</td>
+  </tr>
+  <tr>
+    <td><strong>films</strong></td>
+    <td>Stores **Star Wars films**, including title, episode number, and release date.</td>
+  </tr>
+  <tr>
+    <td><strong>appearances</strong></td>
+    <td>A **join table** that records **which characters appeared in which films**.</td>
+  </tr>
+</table>
+<h2>🔗 ActiveRecord Associations</h2>
+<p>The project includes **4 ActiveRecord associations**:</p>
+<table border="1" cellpadding="8">
+  <tr>
+    <th>Model</th>
+    <th>Association</th>
+    <th>Type</th>
+  </tr>
+  <tr>
+    <td>Character</td>
+    <td>has_many :appearances</td>
+    <td>One-to-Many</td>
+  </tr>
+  <tr>
+    <td>Character</td>
+    <td>has_many :films, through: :appearances</td>
+    <td>Many-to-Many</td>
+  </tr>
+  <tr>
+    <td>Film</td>
+    <td>has_many :appearances</td>
+    <td>One-to-Many</td>
+  </tr>
+  <tr>
+    <td>Film</td>
+    <td>has_many :characters, through: :appearances</td>
+    <td>Many-to-Many</td>
+  </tr>
+</table>
+<h2>🛠️ Project Features</h2>
 <ul>
-  <li>✅ <strong>Characters and Films</strong> with full CRUD functionality.</li>
-  <li>✅ <strong>Pagination</strong> to handle large data sets efficiently.</li>
-  <li>✅ <strong>Search and Filtering</strong> for easy data lookup.</li>
-  <li>✅ <strong>Custom Styling</strong> for a clean UI.</li>
+  <li>✅ **Validations on Models** (1.6 - 💡 5 Marks ✅)</li>
+  <li>✅ **Seeded Database with 400+ Rows** (1.7 - 🔥 8 Marks ✅)</li>
+  <li>✅ **About Page with Dataset Details** (2.1 - 🕯️ 3 Marks ✅)</li>
+  <li>✅ **Global Navigation Menu** (2.2 - 💡 5 Marks ✅)</li>
+  <li>✅ **Collection Navigation (Character & Film Listings)** (3.1 - 🕯️ 3 Marks ✅)</li>
+  <li>✅ **Member Pages for Characters & Films** (3.2 - 💡 5 Marks ✅)</li>
+  <li>✅ **Multi-Model Data on Member Pages** (3.3 - 💡 5 Marks ✅)</li>
+  <li>✅ **Hierarchical Navigation (Characters ↔ Films)** (3.4 - 🔥 8 Marks ✅)</li>
+  <li>✅ **Pagination (Characters & Films)** (3.5 - 💡 5 Marks ✅)</li>
+  <li>✅ **Mapping Characters with Locations (Leaflet.js)** (3.6 - 🔥 8 Marks ✅)</li>
+  <li>✅ **Simple Search for Characters & Films** (4.1 - 🕯️ 3 Marks ✅)</li>
+  <li>✅ **Hierarchical Search (Filter by Species, Episode)** (4.2 - 💡 5 Marks ✅)</li>
+  <li>✅ **Valid HTML (W3C-Compliant)** (5.1 - 🕯️ 3 Marks ✅)</li>
+  <li>✅ **ERB Conditional (Dynamic Rendering with `if` Statements)** (5.2 - 🕯️ 3 Marks ✅)</li>
+  <li>✅ **Grid-Based Layout for UI Design** (5.3 - 💡 5 Marks ✅)</li>
+  <li>✅ **Git & GitHub Version Control Setup** (6.1 - 🌟 3 Marks ✅)</li>
+  <li>✅ **20+ Git Commits with Meaningful Messages** (6.2 - 🕯️ 3 Marks ✅)</li>
 </ul>
 
 <p><%= link_to "Back to Home", root_path, class: "btn" %></p>
