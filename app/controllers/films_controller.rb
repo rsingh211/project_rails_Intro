@@ -13,6 +13,6 @@ class FilmsController < ApplicationController
 
   def show
     @film = Film.find(params[:id])
-    @characters = @film.characters  # Fetch all characters that appear in this films
+    @characters = @film.characters  # Fetch all characters that appear in this film
   end
 end
