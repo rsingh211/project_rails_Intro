@@ -16,6 +16,33 @@ gem "turbo-rails"
 gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+# Pagination for large data sets
+gem 'kaminari'
+
+# Faker for generating fake data
+gem 'faker'
+
+# HTTParty for API calls (SWAPI)
+gem 'httparty'
+
+# Nokogiri for parsing JSON/XML data if needed
+gem 'nokogiri'
+
+# Bootstrap for styling
+gem 'bootstrap', '~> 5.3.0'
+
+# Bulma CSS (Alternative to Bootstrap)
+gem 'bulma-rails'
+
+# Pry for better debugging
+gem 'pry-rails'
+
+# Dotenv to manage API keys securely
+gem 'dotenv-rails'
+
+# ERD gem to generate a database schema diagram
+gem 'rails-erd'
+
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
