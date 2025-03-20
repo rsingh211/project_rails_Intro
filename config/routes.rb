@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   get "/about", to: "pages#about"
 
   resources :characters, only: [:index, :show]
-  resources :films, only: [:index, :show]
+  resources :films, only: [:index, :show] #routes for films
 end
