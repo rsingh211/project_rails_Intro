@@ -29,7 +29,7 @@ gem 'httparty'
 gem 'nokogiri'
 
 # Bootstrap for styling
-gem 'bootstrap', '~> 5.3.0'
+gem 'bootstrap', '~> 5.3.5'
 
 # Bulma CSS (Alternative to Bootstrap)
 gem 'bulma-rails'
